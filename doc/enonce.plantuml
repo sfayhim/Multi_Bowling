@@ -1,0 +1,12 @@
+@startuml
+
+class PartieMonoJoueur {
+  +PartieMonoJoueur()
+  +enregistreLancer(nombreDeQuillesAbattues: int): boolean
+  +score(): int
+  +estTerminee(): boolean
+  +numeroTourCourant(): int
+  +numeroProchainLancer(): int
+}
+
+@enduml

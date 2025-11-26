@@ -1,0 +1,41 @@
+@startuml
+
+class PartieMonoJoueur {
+  +PartieMonoJoueur()
+  +enregistreLancer(nombreDeQuillesAbattues: int): boolean
+  +score(): int
+  +estTerminee(): boolean
+  +numeroTourCourant(): int
+  +numeroProchainLancer(): int
+}
+
+class Tour {
+  +numero: int
+  +boulesLancees: int
+  -quillesAbattuesLancer1: int
+  -quillesAbattuesLancer2: int
+  +Tour(numero: int, suivant: Tour)
+  +enregistreLancer(quillesAbattues: int): void
+  +estTermine(): boolean
+  +estUnStrike(): boolean
+  +estUnSpare(): boolean
+  +bonusPourStrike(): int
+  +bonusPourSpare(): int
+  +scoreCumule(): int
+  +toString(): String
+}
+
+class DernierTour {
+  -quillesAbattuesLancer3: int
+
+  +DernierTour()
+}
+
+PartieMonoJoueur --> "        1 -premierTour" Tour 
+PartieMonoJoueur --> "1 -tourCourant      " Tour 
+
+
+Tour --> "        0..1 -suivant" Tour
+Tour <|-- DernierTour
+
+@enduml

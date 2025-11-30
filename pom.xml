@@ -7,8 +7,11 @@
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	    <!-- La version de Java utilisée pour compiler le projet -->
-	    <maven.compiler.release>21</maven.compiler.release>
+        <!-- La version de Java utilisée pour compiler le projet -->
+        <!-- Set to a Java version supported by the build JDK. Changed from 21 to 17 to
+        avoid "release version 21 not supported" when JDK < 21 is installed. If you
+        intend to build with JDK 21, change this back and ensure JDK 21 is used in CI. -->
+        <maven.compiler.release>17</maven.compiler.release>
 	    <!-- Versions des dépendances -->
 	    <junit.jupiter.version>5.10.2</junit.jupiter.version>
 	    <surefire.version>3.5.1</surefire.version>
